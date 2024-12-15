@@ -1,0 +1,13 @@
+name: springboot-appln
+
+on: push
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print 
+        run: echo "HELLO, This is first github actions workflow"
+      - name: Log
+        run: echo "Hello, this is log steps of first_job"
+
+      
