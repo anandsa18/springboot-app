@@ -1,7 +1,7 @@
 name: deploy-springboot-appln
 on: workflow_dispatch
 jobs:
-  pre-build:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -11,16 +11,12 @@ jobs:
         with: 
           distribution: 'temurin'
           java-version: '17'
-  
-  build: 
-    needs: pre-build
-    runs-on: ubuntu-latest
-    steps:
       - name: Build
         run: mvn clean install
+    
 
   deploy:
-    needs: ['build','pre-build']
+    needs: ['build']
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
