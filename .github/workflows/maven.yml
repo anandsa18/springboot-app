@@ -1,13 +1,11 @@
-name: springboot-appln
+name: springboot-appln-build
 
 on: workflow_dispatch
 jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print 
-        run: echo "HELLO, This is first github actions workflow"
-      - name: Log
-        run: echo "Hello, this is log steps of first_job"
+      - name: code checkout
+        
 
       
