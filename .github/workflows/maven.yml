@@ -1,19 +1,30 @@
-name: springboot-appln-build
-
-on: workflow_dispatch
+name: deploy-springboot-appln
+on: worlkflow_dispatch
 jobs:
-  first_job:
+  pre-build:
     runs-on: ubuntu-latest
     steps:
-      - name: code checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
-      - name: install java
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with: 
-          distribution: 'temurin'
+          distribution: 'tamurin'
           java-version: '17'
-
-      - name: build
+  
+  build: 
+    needs: pre-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
         run: mvn clean install
+
+  deploy:
+    needs: ['build','pre-build']
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: echo 'Deployment Successful'
+
 
       
