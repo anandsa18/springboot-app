@@ -1,5 +1,5 @@
 name: deploy-springboot-appln
-on: worlkflow_dispatch
+on: workflow_dispatch
 jobs:
   pre-build:
     runs-on: ubuntu-latest
